@@ -1,0 +1,52 @@
+// Angular Material stepper customization for icon-only headers
+$color-active: #0a6dd9;
+$color-complete: #0a6dd9;
+$color-inactive: #d0d5dd;
+
+.medispa-stepper { width: 100%; }
+
+.medispa-stepper .mat-horizontal-stepper-header-container { gap: 0.75rem; }
+
+.medispa-stepper .mat-step-header { padding: 0; }
+
+.step-icon-wrapper {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 2px solid $color-inactive;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #667085;
+  transition: all .25s ease;
+}
+.step-icon-wrapper.active {
+  border-color: $color-active;
+  color: $color-active;
+  box-shadow: 0 0 0 2px rgba($color-active, .15);
+}
+.step-icon-wrapper.completed {
+  background: $color-complete;
+  color: #fff;
+  border-color: $color-complete;
+}
+.icon { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+// Hide default label text (we only show icons) if Material injects any
+// Show custom label (icons) and hide default numeric circle
+.medispa-stepper .mat-step-icon { display: none; }
+// Ensure label is visible since it hosts our custom icon wrapper
+.medispa-stepper .mat-step-label { display: inline-flex; }
+
+// Hide any state-based default Material icons (done/edit/number variants) just in case
+.medispa-stepper .mat-step-header .mat-step-icon-state-number,
+.medispa-stepper .mat-step-header .mat-step-icon-state-edit,
+.medispa-stepper .mat-step-header .mat-step-icon-state-done { display: none !important; }
+
+// Remove ripple & focus visuals from headers (we handle focus style inside wrapper)
+.medispa-stepper .mat-step-header .mat-focus-indicator,
+.medispa-stepper .mat-step-header .mat-step-header-ripple { display: none !important; }
+
+// Prevent hover color changes from Material on headers so our custom styling remains consistent
+.medispa-stepper .mat-step-header:hover { background: transparent; }

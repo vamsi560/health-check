@@ -1,0 +1,11 @@
+<button mat-button
+  [type]="buttonType()"
+  [color]="buttonColor()"
+  [disabled]="isDisabled()"
+  [attr.aria-label]="ariaLabel || label"
+  (click)="onClick($event)"
+  [class]="customClass"
+  [style]="customStyle">
+  @if (icon) { <mat-icon>{{ icon }}</mat-icon> }
+  {{ label }}
+</button>

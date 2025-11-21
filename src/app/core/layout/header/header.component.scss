@@ -1,0 +1,70 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: 56px;
+  border-bottom: 1px solid #d9e1e8;
+  background-color: #ffffff;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.brand-group .brand {
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #0d4775;
+  letter-spacing: .5px;
+}
+
+.primary-nav .nav-list {
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.primary-nav .nav-list a {
+  text-decoration: none;
+  color: #244e66;
+  font-size: .875rem;
+  font-weight: 500;
+  padding: .5rem .75rem;
+  border-radius: 4px;
+  line-height: 1.25rem;
+}
+
+.primary-nav .nav-list a:hover,
+.primary-nav .nav-list a:focus {
+  background: #f2f6f9;
+  outline: none;
+}
+
+.primary-nav .nav-list a.active {
+  background: #0d4775;
+  color: #fff;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #2E3A4A10;
+  background: #2E3A4A;
+  display: block;
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+@media (max-width: 640px) {
+  .primary-nav .nav-list {
+    gap: .75rem;
+  }
+  .app-header {
+    padding: 0 .75rem;
+  }
+}

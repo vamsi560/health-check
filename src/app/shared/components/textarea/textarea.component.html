@@ -1,0 +1,14 @@
+<mat-form-field appearance="outline" class="textarea-field" [floatLabel]="'always'">
+  <mat-label>{{ label }}</mat-label>
+  <textarea matInput
+            [rows]="rows"
+            [value]="value"
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+            [required]="required"
+            [attr.aria-label]="ariaLabel || label"
+            (input)="onInput($event)"></textarea>
+  @if (error) {
+    <mat-error>{{ error }}</mat-error>
+  }
+</mat-form-field>

@@ -1,0 +1,17 @@
+<mat-form-field appearance="outline" class="date-picker-field" [floatLabel]="'always'">
+  <mat-label>{{ label }}</mat-label>
+  <input matInput
+         [matDatepicker]="picker"
+         [value]="value"
+         [placeholder]="placeholder"
+         [disabled]="disabled"
+         [required]="required"
+         [min]="min"
+         [max]="max"
+         [attr.aria-label]="ariaLabel || label"
+         (dateChange)="onDateChange($event)" />
+  <mat-datepicker #picker></mat-datepicker>
+  @if (error) {
+    <mat-error>{{ error }}</mat-error>
+  }
+</mat-form-field>

@@ -1,0 +1,22 @@
+<mat-horizontal-stepper [selectedIndex]="currentStep" (selectionChange)="onStepChange($event.selectedIndex)" [linear]="linear" class="medispa-stepper" aria-label="Progress">
+  @for (step of steps; let i = $index; track i) {
+  <mat-step [completed]="i < currentStep" [editable]="false">
+      <ng-template matStepLabel>
+  <span class="step-icon-wrapper" [class.active]="i === currentStep" [class.completed]="i < currentStep" [attr.aria-label]="step.label">
+          @if (step.icon === 'User') { <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg> }
+          @else if (step.icon === 'FileText') { <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M10 13h4"/><path d="M10 17h4"/></svg> }
+          @else if (step.icon === 'ClipboardList') { <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 4h6"/><path d="M9 10h6"/><path d="M9 14h6"/></svg> }
+          @else if (step.icon === 'HelpCircle') { <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v.01"/><path d="M12 12a2 2 0 1 0-2-2"/></svg> }
+          @else if (step.icon === 'Briefcase') { <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M9 7V5h6v2"/></svg> }
+          @else if (step.icon === 'Car') { <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M3 14l2-5h14l2 5"/><circle cx="7.5" cy="16.5" r="1.5"/><circle cx="16.5" cy="16.5" r="1.5"/></svg> }
+          @else if (step.icon === 'Users') { <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><path d="M2 20c0-3.3 3.6-6 8-6"/><path d="M14 14c4.4 0 8 2.7 8 6"/></svg> }
+          @else if (step.icon === 'AlertTriangle') { <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> }
+          @else if (step.icon === 'Box') { <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.73"/><path d="M3.3 7.3 12 12l8.7-4.7"/></svg> }
+          @else if (step.icon === 'Lock') { <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> }
+          @else if (step.icon === 'FileCheck') { <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg> }
+          @else { <span class="icon" aria-hidden="true">{{ i + 1 }}</span> }
+        </span>
+      </ng-template>
+    </mat-step>
+  }
+</mat-horizontal-stepper>

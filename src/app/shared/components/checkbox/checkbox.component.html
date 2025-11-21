@@ -1,0 +1,11 @@
+<mat-checkbox
+  [checked]="checked"
+  [disabled]="disabled"
+  [required]="required"
+  [attr.aria-label]="ariaLabel || label"
+  (change)="onChange($event)">
+  {{ label }}
+</mat-checkbox>
+@if (error) {
+  <div class="checkbox-error" role="alert">{{ error }}</div>
+}

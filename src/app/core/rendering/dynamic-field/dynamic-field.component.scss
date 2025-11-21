@@ -1,0 +1,21 @@
+.full-row { grid-column: 1 / -1; }
+:host { display:block; }
+
+.field-error {
+	font-size: .6875rem;
+	color: #b3261e;
+	margin-top: .25rem;
+}
+
+.quote-summary, .full-quote-summary {
+	background: #ffffff;
+	border: 1px solid #e1e7ec;
+	border-radius: 6px;
+	padding: 1rem 1.25rem;
+	font-size: .875rem;
+	line-height: 1.25rem;
+}
+.quote-summary h3, .full-quote-summary h3 { margin: 0 0 .5rem; font-size: 1rem; }
+.quote-summary .price { font-weight: 600; margin: 0 0 .5rem; }
+.quote-summary .details, .full-quote-summary .summary-fields { list-style: none; margin: 0; padding: 0; }
+.quote-summary li, .full-quote-summary li { margin-bottom: .25rem; }

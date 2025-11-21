@@ -1,0 +1,15 @@
+<div class="table-container" [attr.aria-label]="ariaLabel() || 'Data Table'">
+  <table mat-table [dataSource]="data()" class="mat-elevation-z1">
+    @for (column of columns(); track column.key) {
+      <ng-container [matColumnDef]="column.key">
+        <th mat-header-cell *matHeaderCellDef>{{ column.label }}</th>
+        <td mat-cell *matCellDef="let row">{{ row[column.key] }}</td>
+      </ng-container>
+    }
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsSignal()"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumnsSignal()" (click)="onRowClick(row)" (keydown.enter)="onRowClick(row)" (keydown.space)="onRowClick(row)" tabindex="0"></tr>
+  </table>
+  @if (showPaginator()) {
+    <mat-paginator [pageSize]="pageSize()" [pageSizeOptions]="pageSizeOptions()"></mat-paginator>
+  }
+</div>

@@ -1,0 +1,77 @@
+{
+  "quoteFlow": [
+    { "id": "1", "name": "Customer Information", "endpoint": "/customerInformationModel", "layout": "FormLayoutComponent", "icon": "User" },
+    { "id": "2", "name": "Quote Information", "endpoint": "/quoteInformationModel", "layout": "FormLayoutComponent", "icon": "FileText" }
+  ],
+  "customerInformationModel": {
+    "fields": [
+      {
+        "label": "Type of Insured",
+        "name": "typeOfInsured",
+        "component": "Radio",
+        "options": [
+          { "label": "Corporation", "value": "corporation" },
+          { "label": "Individual", "value": "individual" }
+        ],
+        "value": "corporation",
+        "validationRules": { "required": { "value": true } }
+      },
+      {
+        "label": "Business Name",
+        "name": "businessName",
+        "component": "TextInput",
+        "type": "text",
+        "placeholder": "Enter business name",
+        "dependsOn": [ { "elementId": "typeOfInsured", "equals": "corporation" } ],
+        "hideWhenDepNotMet": true,
+        "validationRules": { "required": { "value": true }, "minLength": { "value": 2 } }
+      },
+      {
+        "label": "First Name",
+        "name": "firstName",
+        "component": "TextInput",
+        "type": "text",
+        "placeholder": "Enter first name",
+        "dependsOn": [ { "elementId": "typeOfInsured", "equals": "individual" } ],
+        "hideWhenDepNotMet": true,
+        "validationRules": { "required": { "value": true }, "minLength": { "value": 2 } }
+      },
+      {
+        "label": "Last Name",
+        "name": "lastName",
+        "component": "TextInput",
+        "type": "text",
+        "placeholder": "Enter last name",
+        "dependsOn": [ { "elementId": "typeOfInsured", "equals": "individual" } ],
+        "hideWhenDepNotMet": true,
+        "validationRules": { "required": { "value": true }, "minLength": { "value": 2 } }
+      }
+    ],
+    "buttons": [
+      { "label": "Next", "type": "submit", "onClickHandler": "handleNext", "color": "primary" }
+    ]
+  },
+  "quoteInformationModel": {
+    "fields": [
+      {
+        "label": "Effective Date",
+        "name": "effectiveDate",
+        "component": "DatePicker",
+        "type": "date",
+        "validationRules": { "required": { "value": true } }
+      },
+      {
+        "label": "Projected Gross Revenue",
+        "name": "grossRevenue",
+        "component": "TextInput",
+        "type": "number",
+        "placeholder": "Enter projected revenue",
+        "validationRules": { "required": { "value": true } }
+      }
+    ],
+    "buttons": [
+      { "label": "Submit", "type": "submit", "onClickHandler": "onSubmit", "color": "accent" },
+      { "label": "Back", "type": "button", "onClickHandler": "handlePrev", "color": "primary" }
+    ]
+  }
+}
